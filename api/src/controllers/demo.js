@@ -1,5 +1,5 @@
-var obj = {id: 12}
-var obj1 = {id: 123}
+var obj = {id: 12, war: "asd"}
+var obj1 = {id: [{key: "asd"}, {key: "qwe"}]}
 var obj2 = {id: 1200}
 console.log(obj.id);
 
@@ -16,3 +16,4 @@ console.log(testPush(obj));
 console.log(testPush(obj1));
 console.log(testPush(obj2));
 
+console.log(Object.values(obj1));

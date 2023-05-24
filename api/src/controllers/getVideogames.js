@@ -11,17 +11,17 @@ const apiKey = `?key=${API_KEY}`
 
 
 async function getVideogames (req, res) {
-    console.log(URL + apiKey)
+    // console.log(URL + apiKey)
     var videogames = [];
     var videogame = {};
-    console.log(videogames.length)
 
     var url = URL + apiKey;
 
+    //API
     while(videogames.length !== 100){
-        console.log(videogames.length + " " + url)
+        // console.log(videogames.length + " " + url)
         await axios(url)
-        .then( (response) => {
+        .then( async (response) => {
             
             var queBusco = response.data.results;
 
@@ -60,7 +60,7 @@ async function getVideogames (req, res) {
                         genres: stringGenres,
                     }
                     videogames.push(videogame);
-                    console.log(videogames);
+                    // console.log(videogames);
                 }
 
                 if(videogames.length === 100) {
@@ -69,10 +69,52 @@ async function getVideogames (req, res) {
                 
             }
             url=response.data.next
+
+
+
         }, 
         (error) => res.status(500).json(error.message)
         );
     }
+
+    //DB
+    const videogamesDB = await Videogame.findAll({
+        include: [{
+            model: Genres,
+        }]
+    }) || [];
+    // console.log("---------------------------------",videogamesDB, "---------------------------------------");
+
+    videogamesDB.forEach(elemento => {
+        var arrayGenre = elemento.dataValues.genres;
+        // console.log("---------->>>>>>>>>>>>>>",arrayGenre,"<<<<<<<-----")
+
+        var stringGenres=""
+        const genres = elemento.genres
+        for ( var k = 0; k < genres.length; k ++) {
+            stringGenres += genres[k].name ;
+
+            if(k !== genres.length-1) {
+                stringGenres += " - ";
+            }
+        }
+
+        videogame = {
+            id: elemento.id,
+            image: elemento.image,
+            name: elemento.name,
+            released: elemento.released,
+            rating: elemento.rating,
+            platforms: elemento.platforms,
+            description: elemento.description || "",
+            genres: stringGenres,
+        }
+        // console.log("-)))))))))))))))", videogame, "((((((((((((((((((((((((((((-");
+
+        videogames.push(videogame);
+
+    })  
+
     res.status(200).json({videogames}); 
 };
 
