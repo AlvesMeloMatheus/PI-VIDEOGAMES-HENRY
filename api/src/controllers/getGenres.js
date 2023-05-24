@@ -22,6 +22,9 @@ async function getGenres (req, res) {
                     console.log(newG);
                 }         
             }
+
+            
+
         }, (error) => res.status(500).json(error.message)
     )
     const genres = await Genres.findAll();

@@ -20,14 +20,50 @@ async function getVideogameName (req, res) {
     console.log(videogames.length)
 
     var url = URL + apiKey;
+// ------------------------ DB -----------------------------
+    const videogameNameDB = await Videogame.findAll({
+        include: [{
+            model: Genres,
+        }]
+    });
 
-    // const videogameNameDB = await Videogame.findOne({
-    //     where: {name: name},
-    //     include: [{
-    //         model: Genres,
-    //     }]
-    // }) || {}
+    // console.log("->>>>>>>> ",videogameNameDB," <<<<<<<<<<-");
 
+    for (var z = 0; z < videogameNameDB.length; z++) {
+
+        if ( videogameNameDB.length > 0) {
+
+            var stringGenres=""
+            const genres = videogameNameDB[z].genres
+            // console.log("->>>>>>>>} ",videogameNameDB[0]," {<<<<<<<<<<-");
+
+            for ( var k = 0; k < genres.length; k ++) {
+                stringGenres += genres[k].name ;
+
+                if(k !== genres.length-1) {
+                    stringGenres += " - ";
+                }
+            }
+
+            videogame = {
+                id: videogameNameDB[z].id,
+                image: videogameNameDB[z].image,
+                name: videogameNameDB[z].name,
+                released: videogameNameDB[z].released,
+                rating: videogameNameDB[z].rating,
+                platform: videogameNameDB[z].platforms,
+                description: videogameNameDB[z].description || "",
+                genres: stringGenres,
+            }
+            // console.log("->>>>>>>>} ",videogame," {<<<<<<<<<<-");
+            videogames.push(videogame);
+            // console.log("->>>>>>>>} ",videogames," {<<<<<<<<<<-");
+
+        }
+
+    }
+
+// ------------------------ API ----------------------------
     while(videogames.length !== 100){
         console.log(videogames.length + " " + url)
         await axios(url)
@@ -70,7 +106,7 @@ async function getVideogameName (req, res) {
                         genres: stringGenres,
                     }
                     videogames.push(videogame);
-                    console.log(videogames);
+                    // console.log(videogames);
                 }
 
                 if(videogames.length === 100) {
@@ -89,6 +125,7 @@ async function getVideogameName (req, res) {
     if (videogames.length > 15) {
         videogames = videogames.slice(0, 14)
     }
+    console.log("->>>>>>>>} ",videogames," {<<<<<<<<<<-"); // API + DB
 
     res.status(200).json({videogames}); 
 
