@@ -21,6 +21,13 @@ async function getVideogameName (req, res) {
 
     var url = URL + apiKey;
 
+    // const videogameNameDB = await Videogame.findOne({
+    //     where: {name: name},
+    //     include: [{
+    //         model: Genres,
+    //     }]
+    // }) || {}
+
     while(videogames.length !== 100){
         console.log(videogames.length + " " + url)
         await axios(url)

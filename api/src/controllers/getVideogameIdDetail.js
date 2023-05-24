@@ -94,7 +94,7 @@ async function getVideogameIdDetail (req, res) {
     } else {
         console.log("}}}}}}}} No existo {{{{{{");
         res.status(400).json("El id no cumple con ningun formato deseado (UUID o numero entero)")
-        return;
+        return; // aqui logro que no se crashee el back
     }
 
     if(!videogame){
