@@ -1,0 +1,23 @@
+#search{
+    border: solid black 1px;
+
+    height: 1.4rem;
+
+    width: 14rem;
+
+    margin-left: 3rem;
+}
+
+#BtnSearch{
+
+    border: solid black 1px;
+
+    margin-top: 0.4rem;
+
+    width: 2.2rem;
+    height: 1.4rem;
+}
+
+#BtnSearch:hover{
+    cursor: pointer;
+}

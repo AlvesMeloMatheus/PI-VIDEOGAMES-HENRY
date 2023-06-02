@@ -1,0 +1,8 @@
+#BtnPageNum{
+    margin-right: 10px;
+    font-weight: 700;
+}
+
+#BtnPageNum:hover{
+    cursor: pointer;
+}

@@ -1,0 +1,9 @@
+.ContainerS{
+
+    /* -------- position cards --------*/
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* -------- position cards --------*/
+}

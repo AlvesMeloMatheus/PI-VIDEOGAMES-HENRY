@@ -1,0 +1,27 @@
+#BtnHOME{
+    margin-right: 0.4rem;
+
+    border: solid black 1px;
+}
+
+#BtnHOME:hover{
+    cursor: pointer;
+}
+
+#BtnCREATE{
+    margin-right: 0.4rem;
+
+    border: solid black 1px;
+}
+
+#BtnCREATE:hover{
+    cursor: pointer;
+}
+
+#BtnEXIT{
+    border: solid black 1px;
+}
+
+#BtnEXIT:hover{
+    cursor: pointer;
+}

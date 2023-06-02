@@ -1,0 +1,27 @@
+.Container{
+
+    /* -------- position cards --------*/
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* -------- position cards --------*/
+}
+
+#NumPages{
+
+    border: rgb(0, 0, 0, 0.1) solid 1px;
+    border-radius: 10rem;
+
+    padding: 1rem;
+
+    width: 15rem;
+
+    margin-left: 45%;
+    margin-bottom: 1px;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}

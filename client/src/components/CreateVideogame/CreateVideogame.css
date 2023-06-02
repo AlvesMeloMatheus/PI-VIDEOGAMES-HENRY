@@ -1,0 +1,110 @@
+.InpN{
+    border: solid black 1px;
+
+    width: 25rem;
+
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.InpP{
+    border: solid black 1px;
+
+    width: 25rem;
+
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+
+    margin-top: 5px;
+
+}
+
+.InpRL{
+    border: solid black 1px;
+
+    width: 25rem;
+
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+
+    margin-top: 5px;
+
+}
+
+.InpRA{
+    border: solid black 1px;
+
+    width: 25rem;
+
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+
+    margin-top: 5px;
+
+}
+
+.InpD{
+    border: solid black 1px;
+
+    width: 25rem;
+    height: 10rem;
+
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+
+    margin-top: 5px;
+}
+
+.Checkbox{
+
+    background-color: rgb(255, 255, 255, 0.8);
+
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    border: solid black 2px;
+
+    width: 50rem;
+
+    height: 20rem;
+
+    font-weight: 700;
+
+    padding: 5px;
+
+    margin-left: 23%;
+    margin-top: 5px;
+}
+
+.CheckboxContainer{
+
+    margin-bottom: 5rem;
+
+    height: 45px;
+    width: 7rem;
+
+    margin-right: 1px;
+}
+
+.CubeHover:hover{
+    cursor: pointer;
+}
+
+#BtnSub{
+    border: solid black 1px;
+    border-radius: 1rem;
+
+    background-color: white;
+
+    margin-bottom: 0.4rem;
+}
+
+#BtnSub:hover{
+    cursor: pointer;
+
+    color: white;
+
+    background-color: red;
+}
