@@ -60,7 +60,7 @@ async function getVideogames (req, res) {
                         genres: stringGenres,
                     }
                     videogames.push(videogame);
-                    // console.log(videogames);
+                    // console.log("esto es: ",videogames);
                 }
 
                 if(videogames.length === 100) {
