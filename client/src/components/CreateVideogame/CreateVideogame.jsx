@@ -110,51 +110,57 @@ const CreateVideogame = () => {
         <Provider store={store}>
             <h1>🧙‍♂️ Create your videogame 🤺</h1>
             <form onSubmit={submitDate}>
+                <div className='InputsBox'>
+                    <div>
+                        <label className='LabelN' for="name">Name:</label>
+                        <input className='InpN'
+                            placeholder="Name:" 
+                            type="text"  
+                            name='name'
+                            onChange={handleInputChange}
+                            />
+                    </div>
 
-                <div>
-                    <input className='InpN'
-                        placeholder="Name:" 
-                        type="text"  
-                        name='name'
-                        onChange={handleInputChange}
-                        />
-                </div>
-
-                <div>
-                    <input className='InpP'
-                        placeholder="Platform:" 
-                        type="text" 
-                        name='platforms'
-                        onChange={handleInputChange}
-                        />
-                </div>
+                    <div>
+                        <label className='LabelP' for="platforms">Platforms:</label>
+                        <input className='InpP'
+                            placeholder="Platform:" 
+                            type="text" 
+                            name='platforms'
+                            onChange={handleInputChange}
+                            />
+                    </div>
 
 
-                <div>
-                    <input className='InpRL'
-                        placeholder="Released:" 
-                        type="text" 
-                        name='released'
-                        onChange={handleInputChange}
-                        />
-                </div>
+                    <div>
+                        <label className='LabelRL' for="released">Released:</label>
+                        <input className='InpRL'
+                            placeholder="Released:" 
+                            type="text" 
+                            name='released'
+                            onChange={handleInputChange}
+                            />
+                    </div>
 
-                <div>
-                    <input className='InpRA'
-                        placeholder="Rating:" 
-                        type="text" 
-                        name='rating'
-                        onChange={handleInputChange}
-                        />
-                </div>
+                    <div>
+                        <label className='LabelRA' for="rating">Rating:</label>
+                        <input className='InpRA'
+                            placeholder="Rating:" 
+                            type="text" 
+                            name='rating'
+                            onChange={handleInputChange}
+                            />
+                    </div>
 
-                <div>
-                    <input className='InpD'
-                        placeholder="Description:" 
-                        type="text" 
-                        name='description'
-                        onChange={handleInputChange}
-                        />
+                    <div>
+                        <label className='LabelD' for="description">Description:</label>
+                        <input className='InpD'
+                            placeholder="Description:" 
+                            type="text" 
+                            name='description'
+                            onChange={handleInputChange}
+                            />
+                    </div>
                 </div>
 
                 <div className='Checkbox'>
