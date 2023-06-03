@@ -5,6 +5,7 @@ const { Videogame, Genres } = require("../db");
 async function  postNewGame (req, res) {
 
     const json = req.body;
+    console.log(json);
     const { name, image, rating, released, platforms, description, genres} = json
 
     if (name === undefined || image === undefined || rating === undefined || released === undefined || platforms === undefined || description === undefined || genres === undefined) {
@@ -17,6 +18,7 @@ async function  postNewGame (req, res) {
         if (objDB) {
             console.log("ya existe");
             res.status(500).json("Ya existe ese nombre")
+            return;
         } else {
             try {
     
@@ -46,6 +48,7 @@ async function  postNewGame (req, res) {
             }
             catch (err) {
                 res.status(500).json(err.message)
+                return;
             }
         }
     

@@ -30,7 +30,7 @@ const CreateVideogame = () => {
     const [videogames, setVideogames] = useState({
         name: '',
         description: '',
-        platform: '',
+        platforms: '',
         released: '',
         rating: '',
         genres: '',
@@ -71,28 +71,38 @@ const CreateVideogame = () => {
     const submitDate = (event) => {
         console.log(cubeState)
         event.preventDefault();
-        const genresString = cubeState.reduce(
-            (str, currentState, index) => {
-              if (currentState === true) {
-                return str + genresApi[index].name + ', ';
-              }
-              return str;
-            },
-            ''
-          );
+
+        // const genresString = cubeState.reduce(
+        //     (str, currentState, index) => {
+        //       if (currentState === true) {
+        //         return str + genresApi[index].name + ', ';
+        //       }
+        //       return str;
+        //     },
+        //     ''
+        //   );
+
+        const genresArray = [];
+
+        cubeState.forEach((elemento, index) => {
+            if( elemento === true) {
+                genresArray.push(genresApi[index])
+            }
+        })
+
         var videogameFromForm = {
             ...videogames,
-            platform: videogames.platform,
+            platforms: videogames.platforms,
             released: videogames.released,
             rating: videogames.rating,
-            genres: genresString,
+            genres: genresArray,
             description: videogames.description,
-            image: "https://i.pinimg.com/originals/2c/58/10/2c5810b644a690f4495fd8571801435b.gif"
+            image: "https://www.pixelstalk.net/wp-content/uploads/images6/Gaming-Wallpaper-4k-HD-Wallpaper-Free-download.jpg"
         }
         const body= JSON.stringify(videogameFromForm)
         console.log(body)
-        dispatch(postVideogames(body))
-        console.log(videogames.name + ' ' + videogames.released);
+        dispatch(postVideogames( JSON.stringify(videogameFromForm)))
+        console.log( "------>" + videogames.name + ' ' + videogames.released + " " + videogames.platform + " " + videogames.rating + " " + videogames.description + + "<---------");
     }
 
     return (
@@ -114,7 +124,7 @@ const CreateVideogame = () => {
                     <input className='InpP'
                         placeholder="Platform:" 
                         type="text" 
-                        name='platform'
+                        name='platforms'
                         onChange={handleInputChange}
                         />
                 </div>

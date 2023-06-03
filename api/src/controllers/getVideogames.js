@@ -83,7 +83,7 @@ async function getVideogames (req, res) {
             model: Genres,
         }]
     }) || [];
-    // console.log("---------------------------------",videogamesDB, "---------------------------------------");
+    console.log("---------------------------------",videogamesDB, "---------------------------------------");
 
     videogamesDB.forEach(elemento => {
         var arrayGenre = elemento.dataValues.genres;

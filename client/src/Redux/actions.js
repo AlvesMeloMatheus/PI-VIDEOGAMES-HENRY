@@ -62,7 +62,7 @@ export function postVideogames (body) {
         const bodyJson = {
             body: body
         }
-        const response = await axios.post("http://localhost:3001/videogames/create", bodyJson);
+        const response = await axios.post("http://localhost:3001/videogames/create", JSON.parse(body));
         console.log(response)
         return dispatch ({
             type: POST_VIDEOGAMES, 
