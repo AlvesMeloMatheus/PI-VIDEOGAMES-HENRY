@@ -15,7 +15,8 @@ import PaginationCards from './PaginationCards';
 
 import store from '../../Redux/store'
 import { getVideogames } from '../../Redux/actions';
-// ---------- Components ----
+import FilterAndOrderVideogames from '../NavBar/FilterAndOrderVideogames/FilterAndOrderVideogames'
+// ---------- Components redux ----
 
 const Cards = () => {
 
@@ -40,6 +41,8 @@ const Cards = () => {
   return (
     <div className='Container'>
         <Provider store={store} >
+
+          <FilterAndOrderVideogames />
 
           {currentPosts.map((videogame, index) => (
             <Card

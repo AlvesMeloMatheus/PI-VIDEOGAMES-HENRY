@@ -1,6 +1,6 @@
 import { GET_VIDEOGAMES, GET_VIDEOGAMES_NAME, 
     GET_VIDEOGAMES_ID_DETAIL, GET_GENRES, 
-    POST_VIDEOGAMES} from "./types";
+    POST_VIDEOGAMES, ORDER_VIDEOGAMES, FILTER_VIDEOGAMES} from "./types";
 
 const initialState = {
     videogames: [],
@@ -43,6 +43,19 @@ const reducer = ( state = initialState, action) => {
                 ...state,
                 postVideogames: action.payload,
             };
+
+        // -------- ORDER AND FILTER ----------
+        case ORDER_VIDEOGAMES:
+            return {
+                ...state,
+                videogames: action.payload,
+            };
+        
+        case FILTER_VIDEOGAMES:
+            return {
+                ...state,
+                videogames: action.payload,
+            }
 
         default:
             return state;    

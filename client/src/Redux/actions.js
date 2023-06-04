@@ -1,6 +1,8 @@
 import { GET_VIDEOGAMES, GET_VIDEOGAMES_NAME, 
     GET_VIDEOGAMES_ID_DETAIL, GET_GENRES, 
-    POST_VIDEOGAMES} from "./types";
+    POST_VIDEOGAMES,
+    ORDER_VIDEOGAMES,
+    FILTER_VIDEOGAMES} from "./types";
 
 import axios from "axios";
 
@@ -71,3 +73,73 @@ export function postVideogames (body) {
     };
 };
 // --------------------------------
+
+// --------------- ORDER ----------
+export function orderVideogames (criterio, videogames) {
+    return async function (dispatch) {
+        console.log("action");
+        var orderedVideogames = [];
+        if(criterio === "name_asc") {
+            orderedVideogames = videogames.sort((a, b) => a.name.localeCompare(b.name));
+        } else if (criterio = "name_dsc") {
+            orderedVideogames = videogames.sort((a, b) => -a.name.localeCompare(b.name));
+        } else if (criterio === "rating_asc") {
+            orderedVideogames = videogames.sort((a,b) => a.rating.localeCompare(b.rating));
+        } else if (criterio === "rating_dsc") {
+            orderedVideogames = videogames.sort((a,b) => -a.rating.localeCompare(b.rating));
+        } else {
+            orderedVideogames = videogames;
+        }
+
+        const resultArray = [...orderedVideogames]
+
+        console.log(orderedVideogames);
+        console.log(resultArray);
+        return dispatch({
+            type: ORDER_VIDEOGAMES,
+            payload: resultArray,
+        });
+    };
+}
+// -------------------------------------
+
+// -------------- FILTER GENRES ---------------
+export function filterGenres (genr, videogames) {
+    return async function (dispatch) {
+        var filteredVideogames = [];
+        console.log(genr)
+        videogames.forEach((videogame) => {
+            console.log(videogame)
+            if (videogame.genres?.includes(genr)) {
+                filteredVideogames.push(videogame);
+            }
+        });
+    
+        return dispatch({
+          type: FILTER_VIDEOGAMES,
+          payload: filteredVideogames,
+        });
+    };
+}
+
+// -------------- FILTER API/DB ---------------
+export function filterIsApi(isFromAPI, videogames) {
+    return async function (dispatch) {
+        var filteredVideogames = [];
+        //saber si el id es uuid o id normal, si uuid es de la db
+        const regexExp =
+        /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/gi;
+        videogames.forEach((videogame) => {
+            if (isFromAPI && !regexExp.test(videogame.id)) {
+                filteredVideogames.push(videogame);
+            } else if (!isFromAPI && regexExp.test(videogame.id)) {
+                filteredVideogames.push(videogame);
+            }
+        });
+  
+        return dispatch({
+            type: FILTER_VIDEOGAMES,
+            payload: filteredVideogames,
+        });
+    };
+}

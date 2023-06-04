@@ -1,0 +1,52 @@
+.ContainerFilters{
+    background-color: rgb(255, 255, 255, 0.8);
+
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    border: solid black 2px;
+    border-radius: 2rem;
+
+    width: 60rem;
+
+    height: 5rem;
+
+    font-weight: 700;
+
+    padding: 5px;
+
+    margin-left: 20%;
+    margin-top: 5px;
+}
+
+#FilterGenres{
+    border: solid black 1px;
+    border-radius: 1rem;
+
+    padding: 2px;
+}
+#FilterAPIyDB{
+    border: solid black 1px;
+    border-radius: 1rem;
+
+    padding: 2px;
+}
+#FilterRatingAZ{
+    border: solid black 1px;
+    border-radius: 0.5rem;
+
+    padding: 2px;
+}
+
+#BtnClear{
+    border: solid black 1px;
+    border-radius: 3rem;
+
+    font-weight: 800;
+
+}
+#BtnClear:hover{
+    cursor: pointer;
+}
