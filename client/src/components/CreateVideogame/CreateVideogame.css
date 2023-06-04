@@ -175,3 +175,9 @@
 
     background-color: red;
 }
+
+.ErrorMessage{
+    color: red;
+    font-weight: 900;
+
+}

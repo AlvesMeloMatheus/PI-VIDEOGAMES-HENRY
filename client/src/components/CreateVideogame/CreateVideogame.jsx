@@ -12,6 +12,10 @@ import { postVideogames, getGenres } from '../../Redux/actions';
 import './CreateVideogame.css';
 // --------------- css -----------
 
+import inputsValidation from './inputsValidation.js'
+// --------------- validation ----
+
+
 const CreateVideogame = () => {
 
     useEffect((() => {
@@ -36,6 +40,15 @@ const CreateVideogame = () => {
         genres: '',
     })
 
+    const [errors, setErrors] = useState({
+        name: '',
+        description: '',
+        platforms: '',
+        released: '',
+        rating: '',
+        genres: '',
+    })
+
     const handleInputChange = (event) => {
         // console.log(event.target.value);
 
@@ -43,6 +56,13 @@ const CreateVideogame = () => {
             ...videogames,
             [event.target.name]: event.target.value
         })
+
+        setErrors(inputsValidation({
+                ...videogames,
+                [event.target.name]: event.target.value
+            })
+        )
+        console.log(errors);
 
     }
 
@@ -105,6 +125,8 @@ const CreateVideogame = () => {
         console.log( "------>" + videogames.name + ' ' + videogames.released + " " + videogames.platform + " " + videogames.rating + " " + videogames.description + + "<---------");
     }
 
+
+
     return (
         <Fragment>
         <Provider store={store}>
@@ -115,20 +137,34 @@ const CreateVideogame = () => {
                         <label className='LabelN' for="name">Name:</label>
                         <input className='InpN'
                             placeholder="Name:" 
-                            type="text"  
+                            type="text"
+                            value={videogames.name}  
                             name='name'
                             onChange={handleInputChange}
                             />
+                        {errors.name ? (
+                            <p className='ErrorMessage'>{errors.name}</p>
+                        ) : errors.nameVacio ? (
+                            <p className='ErrorMessage'>{errors.nameVacio}</p>
+                        ) : (
+                            <p className='ErrorMessage'>{errors.Characters}</p>
+                        )
+                        }
                     </div>
 
                     <div>
                         <label className='LabelP' for="platforms">Platforms:</label>
                         <input className='InpP'
                             placeholder="Platform:" 
-                            type="text" 
+                            type="text"
+                            value={videogames.platforms} 
                             name='platforms'
                             onChange={handleInputChange}
                             />
+                        {(errors.platforms) ? (
+                            <p className='ErrorMessage'>{errors.platforms}</p>
+                        ) : ''
+                        }
                     </div>
 
 
@@ -136,30 +172,48 @@ const CreateVideogame = () => {
                         <label className='LabelRL' for="released">Released:</label>
                         <input className='InpRL'
                             placeholder="Released:" 
-                            type="text" 
+                            type="text"
+                            value={videogames.released} 
                             name='released'
                             onChange={handleInputChange}
                             />
+                        {
+                            errors.released ? (
+                                <p className='ErrorMessage'>{errors.released}</p>
+                            ) : ""
+                        }
                     </div>
 
                     <div>
                         <label className='LabelRA' for="rating">Rating:</label>
                         <input className='InpRA'
                             placeholder="Rating:" 
-                            type="text" 
+                            type="text"
+                            value={videogames.rating} 
                             name='rating'
                             onChange={handleInputChange}
                             />
+                        {
+                            errors.rating ? (
+                                <p className='ErrorMessage'>{errors.rating}</p>
+                            ) : ""
+                        }
                     </div>
 
                     <div>
                         <label className='LabelD' for="description">Description:</label>
                         <input className='InpD'
                             placeholder="Description:" 
-                            type="text" 
+                            type="text"
+                            value={videogames.description} 
                             name='description'
                             onChange={handleInputChange}
                             />
+                        {
+                            errors.description ? (
+                                <p className='ErrorMessage'>{errors.description}</p>
+                            ) : ""
+                        }
                     </div>
                 </div>
 
