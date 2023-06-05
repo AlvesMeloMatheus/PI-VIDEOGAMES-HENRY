@@ -81,12 +81,17 @@ export function orderVideogames (criterio, videogames) {
         var orderedVideogames = [];
         if(criterio === "name_asc") {
             orderedVideogames = videogames.sort((a, b) => a.name.localeCompare(b.name));
-        } else if (criterio = "name_dsc") {
+
+        } else if (criterio === "name_dsc") {
             orderedVideogames = videogames.sort((a, b) => -a.name.localeCompare(b.name));
+
         } else if (criterio === "rating_asc") {
-            orderedVideogames = videogames.sort((a,b) => a.rating.localeCompare(b.rating));
+            orderedVideogames = videogames.sort((a,b) => a.rating - b.rating);
+            console.log(videogames.rating);
+
         } else if (criterio === "rating_dsc") {
-            orderedVideogames = videogames.sort((a,b) => -a.rating.localeCompare(b.rating));
+            orderedVideogames = videogames.sort((a,b) => b.rating - a.rating);
+
         } else {
             orderedVideogames = videogames;
         }
@@ -130,7 +135,6 @@ export function filterIsApi(isFromAPI, videogames) {
 
         //saber si el id es uuid o id normal, si uuid es de la db
         const v4 = new RegExp(/^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i);
-
 
         console.log(isFromAPI +"juegos"+ JSON.stringify(videogames));
         videogames.forEach((videogame) => {
