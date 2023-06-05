@@ -8,6 +8,20 @@
     /* -------- position cards --------*/
 }
 
+#PositionCards{
+
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    /* border: aqua 1px solid; */
+
+    margin-left: 8%;
+    margin-right: 8%;
+
+}
+
 #NumPages{
 
     border: rgb(0, 0, 0, 0.1) solid 1px;

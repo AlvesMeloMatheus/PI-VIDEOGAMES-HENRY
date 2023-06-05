@@ -1,8 +1,9 @@
 import React, { Fragment, useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 // --------------- react ----------
 
-import { useDispatch, useSelector } from "react-redux"
-import {Provider } from 'react-redux'
+import { useDispatch, useSelector } from "react-redux";
+import {Provider } from 'react-redux';
 // --------------- redux ----------
 
 import store from '../../Redux/store';
@@ -125,8 +126,6 @@ const CreateVideogame = () => {
         console.log( "------>" + videogames.name + ' ' + videogames.released + " " + videogames.platform + " " + videogames.rating + " " + videogames.description + + "<---------");
     }
 
-
-
     return (
         <Fragment>
         <Provider store={store}>
@@ -239,7 +238,19 @@ const CreateVideogame = () => {
                 </div>
 
                 <div>
-                    <button id='BtnSub' type="submit" >Submit</button>
+
+                    {
+                        errors.inputsBtn ? (
+                            <p className='ErrorMessageBtn'>{errors.inputsBtn}</p>
+                        ) : <button id='BtnSub' type="submit" >Submit</button>
+                    }
+
+                    {/* <button id='BtnSub' type="submit" >Submit</button> */}
+
+                {/* <NavLink to={`/home`}>
+                        <button className='BtnSub'>Submit</button>
+                    </NavLink> */}
+
                 </div>
 
             </form>

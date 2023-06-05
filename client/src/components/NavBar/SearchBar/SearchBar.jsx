@@ -40,7 +40,7 @@ const SearchBar = ({onSearch}) => {
             />
 
             <NavLink to={`/search?name=${videogame}`}>
-                <button id="BtnSearch" onClick={onSearch}>🔎</button>
+                <button id="BtnSearch" onClick={onSearch}>Search</button>
             </NavLink>
         </div>
     )

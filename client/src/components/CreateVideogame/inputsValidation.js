@@ -41,8 +41,11 @@ const inputsValidation = (inputs) => {
   // ------------------- description ---
   if (inputs.description.length < 10 || inputs.description.length > 500) {
     errors.description = "Minimo 10 characteres y maximo 500 characteres";
-  } 
-
+  }
+  
+  // ------------------- btn submit ----
+  if (inputs.description.length < 10 )
+    errors.inputsBtn = "El buton submit solamente aparecera cuando todos los campos estean aprobados"
   return errors;
 }
 

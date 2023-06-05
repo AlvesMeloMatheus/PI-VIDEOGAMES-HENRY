@@ -44,20 +44,22 @@ const Cards = () => {
 
           <FilterAndOrderVideogames />
 
-          {currentPosts.map((videogame, index) => (
-            <Card
-            key={index}
-            id={videogame.id}
-            name={videogame.name}
-            image={videogame.image}
-            genres={videogame.genres} 
-            platforms={videogame.platforms}
-            description={videogame.description}
-            released={videogame.released}
-            rating={videogame.rating}
-            />
-            ))
-          }
+          <div id='PositionCards'>
+            {currentPosts.map((videogame, index) => (
+              <Card
+              key={index}
+              id={videogame.id}
+              name={videogame.name}
+              image={videogame.image}
+              genres={videogame.genres} 
+              platforms={videogame.platforms}
+              description={videogame.description}
+              released={videogame.released}
+              rating={videogame.rating}
+              />
+              ))
+            }
+          </div>
 
           <div id='NumPages'>
             <PaginationCards 

@@ -178,6 +178,15 @@
 
 .ErrorMessage{
     color: red;
+    font-weight: 700;
+
+}
+
+.ErrorMessageBtn{
+    color: rgb(0, 0, 0);
+
     font-weight: 900;
+
+    padding-bottom: 10px;
 
 }

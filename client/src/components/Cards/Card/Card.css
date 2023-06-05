@@ -5,10 +5,10 @@
 
     width: 26rem;
 
-    margin-top: 1rem;
-    margin-right: 1rem;
-    margin-left: 1.5rem;
-    margin-bottom: 2rem;
+    margin-left: 2px;
+    margin-right: 2px;
+    margin-top: 10px;
+    margin-bottom: 5px;
 
     background-color: rgba(184, 184, 184, 0.8);
 
@@ -64,6 +64,11 @@
 
 .BtnDetail{
     border: solid 1px black;
+    border-radius: 1rem;
+
+    color: white;
+
+    background-color: black;
 
     margin-left: 1rem;
     margin-top: 5px;

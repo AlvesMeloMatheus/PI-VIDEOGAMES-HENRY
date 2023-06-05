@@ -54,8 +54,8 @@ const FilterAndOrderVideogames = () => {
                 <div id='FilterGenres'>
                     <p>Filter by genre</p>
                     <select
-                        id="comboTemp"
-                        name="tempId"
+                        id="comboGenr"
+                        name="genreId"
                         className="form-control"
                         onChange={onGenrChange}
                     >
@@ -87,7 +87,7 @@ const FilterAndOrderVideogames = () => {
                 </div>
     
 
-                <div id='FilterRatingAZ'>
+                <div id='OrderRatingAZ'>
                     <p>Order by</p>
                     <select
                         id="comboOrigin"
@@ -115,7 +115,7 @@ const FilterAndOrderVideogames = () => {
                     name="BtnClear"
                     className="form-control"
                     onClick={onClear}
-                    >Clear Filters and Order by
+                    >Clear Filters and Order
                 </button>
             </div>
         </Provider>
