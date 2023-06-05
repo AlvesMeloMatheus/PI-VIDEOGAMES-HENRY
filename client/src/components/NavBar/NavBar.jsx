@@ -17,7 +17,7 @@ import SearchBar from './SearchBar/SearchBar';
 const NavBar = () => {
 
     return (
-        <div>
+      <div className='NavBarTotal'>
 
         <div >
 
