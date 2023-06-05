@@ -132,6 +132,7 @@
     flex-wrap: wrap;
 
     border: solid black 2px;
+    border-radius: 1rem;
 
     width: 50rem;
 
@@ -148,12 +149,20 @@
 .CheckboxContainer{
 
     margin-bottom: 5rem;
+    margin-right: 1px;
 
     height: 45px;
     width: 7rem;
 
-    margin-right: 1px;
+    border: rgb(255, 255, 255, 0.1) solid 1px;
 }
+
+.TextCubeHover{
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+
 
 .CubeHover:hover{
     cursor: pointer;

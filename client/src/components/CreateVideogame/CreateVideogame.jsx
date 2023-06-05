@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 // --------------- react ----------
 
@@ -93,16 +93,6 @@ const CreateVideogame = () => {
         console.log(cubeState)
         event.preventDefault();
 
-        // const genresString = cubeState.reduce(
-        //     (str, currentState, index) => {
-        //       if (currentState === true) {
-        //         return str + genresApi[index].name + ', ';
-        //       }
-        //       return str;
-        //     },
-        //     ''
-        //   );
-
         const genresArray = [];
 
         cubeState.forEach((elemento, index) => {
@@ -126,11 +116,20 @@ const CreateVideogame = () => {
         console.log( "------>" + videogames.name + ' ' + videogames.released + " " + videogames.platform + " " + videogames.rating + " " + videogames.description + + "<---------");
     }
 
+
+    // ------- reset form ----
+
+    const form = useRef();
+
+    const resetForm = () => {
+        form.current.reset()
+    }
+
     return (
         <Fragment>
         <Provider store={store}>
             <h1>🧙‍♂️ Create your videogame 🤺</h1>
-            <form onSubmit={submitDate}>
+            <form ref={form} onSubmit={submitDate}>
                 <div className='InputsBox'>
                     <div>
                         <label className='LabelN' for="name">Name:</label>
@@ -242,7 +241,7 @@ const CreateVideogame = () => {
                     {
                         errors.inputsBtn ? (
                             <p className='ErrorMessageBtn'>{errors.inputsBtn}</p>
-                        ) : <button id='BtnSub' type="submit" >Submit</button>
+                        ) : <button id='BtnSub' type="submit" onClick={resetForm} >Submit</button>
                     }
 
                     {/* <button id='BtnSub' type="submit" >Submit</button> */}
