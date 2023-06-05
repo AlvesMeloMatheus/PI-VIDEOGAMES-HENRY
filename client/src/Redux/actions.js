@@ -101,7 +101,7 @@ export function orderVideogames (criterio, videogames) {
         });
     };
 }
-// -------------------------------------
+// --------------------------------------------
 
 // -------------- FILTER GENRES ---------------
 export function filterGenres (genr, videogames) {
@@ -125,14 +125,19 @@ export function filterGenres (genr, videogames) {
 // -------------- FILTER API/DB ---------------
 export function filterIsApi(isFromAPI, videogames) {
     return async function (dispatch) {
+
         var filteredVideogames = [];
+
         //saber si el id es uuid o id normal, si uuid es de la db
-        const regexExp =
-        /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/gi;
+        const v4 = new RegExp(/^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i);
+
+
+        console.log(isFromAPI +"juegos"+ JSON.stringify(videogames));
         videogames.forEach((videogame) => {
-            if (isFromAPI && !regexExp.test(videogame.id)) {
+            if (isFromAPI && !v4.test(videogame.id)) {
                 filteredVideogames.push(videogame);
-            } else if (!isFromAPI && regexExp.test(videogame.id)) {
+            } else if (!isFromAPI && v4.test(videogame.id)) {
+                console.log(videogame);
                 filteredVideogames.push(videogame);
             }
         });
