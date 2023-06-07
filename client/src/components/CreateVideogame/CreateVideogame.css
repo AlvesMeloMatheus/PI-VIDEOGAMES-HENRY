@@ -126,15 +126,15 @@
 
     background-color: rgb(255, 255, 255, 0.8);
 
-    display: flex;
+    /* display: flex;
     justify-content: space-around;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
 
-    border: solid black 2px;
+    /* border: solid black 2px; */
     border-radius: 1rem;
 
-    width: 50rem;
+    /* width: 50rem;
 
     height: 20rem;
 
@@ -142,19 +142,48 @@
 
     padding: 5px;
 
-    margin-left: 23%;
-    margin-top: 5px;
+    margin-top: 5px; */
+
+    /* cambios css antes de la presentacion*/
+    margin-left: 28%;
+    margin-right: 29%;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
+    height: 260px;
+    border: solid 3px black;
 }
 
 .CheckboxContainer{
 
-    margin-bottom: 5rem;
+    /* margin-bottom: 5rem;
     margin-right: 1px;
 
     height: 45px;
+    width: 7rem; */
+    /* cambios css antes de la presentacion*/
+
+    margin-left: 2%;
+    margin-top: 10px;
+
     width: 7rem;
 
-    border: rgb(255, 255, 255, 0.1) solid 1px;
+    flex: 0 1 50px;
+
+    background-color: white;
+
+    border: solid 1px #1c4051;
+    border-radius: 6px;
+    
+    text-align: center;
+    font-weight: bold;
+
 }
 
 .TextCubeHover{
