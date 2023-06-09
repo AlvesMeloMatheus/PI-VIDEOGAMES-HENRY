@@ -14,6 +14,7 @@ import { getVideogamesName } from '../../../Redux/actions';
 // ----------------- redux comps -------------
 
 import Card from '../../Cards/Card/Card';
+import NotFound from '../../NotFound/NotFound';
 // ----------------- comps -------------------
 
 
@@ -25,36 +26,48 @@ const Search = () => {
     useEffect((() => {
       const queryParams = new URLSearchParams(window.location.search)
       const name = queryParams.get("name")
-      console.log(name)
+      console.log("name search: ",name)
   
+      
       
       dispatch(getVideogamesName(name))
       console.log("effect: "+JSON.stringify(videogamesName))
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }), [])
 
+    if(videogamesName.length===0) {
+        return (
+            <div className='NotFoundSearch'>
+                <NotFound />
+            </div>
+        )
 
-    return (
-        <div className='ContainerS'>
-            <Provider store={store} >
-                
-                {videogamesName.map((videogame, index) => (
-                    <Card
-                    key={index}
-                    id={videogame.id}
-                    name={videogame.name}
-                    image={videogame.image}
-                    genres={videogame.genres} 
-                    platforms={videogame.platforms}
-                    description={videogame.description}
-                    released={videogame.released}
-                    rating={videogame.rating}
-                    />
-                    ))
-                }
-            </Provider>
-        </div>
-    )
+    } else {
+        return (
+            <div className='ContainerS'>
+                <Provider store={store} >
+                    
+                    {videogamesName.map((videogame, index) => (
+                        <Card
+                        key={index}
+                        id={videogame.id}
+                        name={videogame.name}
+                        image={videogame.image}
+                        genres={videogame.genres} 
+                        platforms={videogame.platforms}
+                        description={videogame.description}
+                        released={videogame.released}
+                        rating={videogame.rating}
+                        />
+                        ))
+                    }
+                </Provider>
+            </div>
+        )
+    }
+
+
+   
 }
 
 export default Search;

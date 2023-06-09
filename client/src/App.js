@@ -16,6 +16,7 @@ import NavBar from './components/NavBar/NavBar';
 import store from './Redux/store';
 import Search from './components/NavBar/Search/Search';
 import CreateVideogame from './components/CreateVideogame/CreateVideogame';
+import NotFound from './components/NotFound/NotFound';
 // ------------ Redux comps -----------
 
 
@@ -36,6 +37,7 @@ function App() {
           <Route exact path="/home" element={<Cards/>} />
           <Route exact path="/videogames/:idVideogame" element={<DetailById/>} />
           <Route exact path="/videogames/create" element={<CreateVideogame/>} />
+          <Route path='*' element={<NotFound/>} />
 
         </Routes>
       </Provider>

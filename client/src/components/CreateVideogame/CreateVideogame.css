@@ -1,51 +1,55 @@
 .InputsBox{
     /* border: black solid 1px; */
 
-    margin-left: 30%;
-    margin-right: 30%;
+    border-radius: 1rem;
+
+    background-color: rgb(255, 255, 255, 0.8);
+
+    margin-left: 28%;
+    margin-right: 29%;
     margin-bottom: 10px;
 
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
 
     display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
     flex-wrap: wrap;
+    gap: 6px;
+
+
+    /* justify-content: flex-start;
+    flex-direction: row; */
 }
 
 .LabelN{
     margin-left: 5px;
+    margin-right: 50px;
 
     font-weight: 700;
-
-    margin-right: 50px;
 
 }
 
 .LabelP{
     margin-left: 5px;
+    margin-right: 22px;
 
     font-weight: 700;
-
-    margin-right: 22px;
 
 }
 
 .LabelRL{
     margin-left: 5px;
+    margin-right: 29px;
 
     font-weight: 700;
 
-    margin-right: 29px;
 
 }
 
 .LabelRA{
     margin-left: 5px;
+    margin-right: 46px;
 
     font-weight: 700;
-
-    margin-right: 46px;
 
 }
 

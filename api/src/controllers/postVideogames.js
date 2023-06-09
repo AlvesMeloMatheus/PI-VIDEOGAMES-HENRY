@@ -6,7 +6,7 @@ async function  postNewGame (req, res) {
 
     const json = req.body;
     console.log(json);
-    const { name, image, rating, released, platforms, description, genres} = json
+    const { name, image, rating, released, platforms, description, genres } = json
 
     if (name === undefined || image === undefined || rating === undefined || released === undefined || platforms === undefined || description === undefined || genres === undefined) {
         res.status(400).json("Falta algun parametro en el body")
@@ -32,14 +32,14 @@ async function  postNewGame (req, res) {
                     rating, 
                     released, 
                     platforms, 
-                    description, 
+                    description,
                 })
-                console.log(newGame);
+                console.log("----->", newGame);
         
-                console.log(genres);
+                // console.log(genres);
         
                 for (var i = 0; i < genres.length; i++) {
-                    console.log(genres[i]);
+                    // console.log(genres[i]);
                     var genre = await Genres.findOne({where: {name: genres[i].name}})
                     if (genre){
                         await newGame.addGenres(genre)
